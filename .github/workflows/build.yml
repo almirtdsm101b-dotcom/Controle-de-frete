@@ -23,9 +23,9 @@ jobs:
           path: |
             ~/.buildozer
             ~/.gradle
-          key: buildozer-kivy-v2-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-kivy-v4-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
           restore-keys: |
-            buildozer-kivy-v2-${{ runner.os }}-
+            buildozer-kivy-v4-${{ runner.os }}-
 
       - name: Install dependencies
         run: |
@@ -34,6 +34,8 @@ jobs:
           pip install --upgrade pip cython==0.29.36 buildozer setuptools wheel
 
       - name: Build Android APK
+        env:
+          CFLAGS: "-O1"
         run: buildozer android debug
 
       - name: Upload APK
