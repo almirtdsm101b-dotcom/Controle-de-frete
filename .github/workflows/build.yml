@@ -23,9 +23,9 @@ jobs:
           path: |
             ~/.buildozer
             ~/.gradle
-          key: buildozer-kivy-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-kivy-v2-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
           restore-keys: |
-            buildozer-kivy-${{ runner.os }}-
+            buildozer-kivy-v2-${{ runner.os }}-
 
       - name: Install dependencies
         run: |
